@@ -8,15 +8,15 @@
       
       {# entry list meta #}
       <p class="uk-text-meta">
-        {{ _x('Published:', 'Entry list tease', 'cautious-octo-fiesta')|e('esc_html') }} {{post.date | date}}
+        {{ _x('Published:', 'Entry list tease', 'competitions-theme-functionality')|e('esc_html') }} {{post.date | date}}
         {% if post.draw_date %}
           <br>
-          {{ _x('Draw date:', 'Entry list tease', 'cautious-octo-fiesta')|e('esc_html') }} {{post.draw_date|e('esc_html')}}
+          {{ _x('Draw date:', 'Entry list tease', 'competitions-theme-functionality')|e('esc_html') }} {{post.draw_date|e('esc_html')}}
         {% endif %}
       </p>
       
       {# entry list download button #}
-      <a href="{{pdf_upload_url|e('esc_url')}}" class="uk-button uk-button-default uk-button-small" download>{{ _x('Download PDF', 'Entry list tease', 'cautious-octo-fiesta')|e('esc_html') }}</a>
+      <a href="{{pdf_upload_url|e('esc_url')}}" class="uk-button uk-button-default uk-button-small" download>{{ _x('Download PDF', 'Entry list tease', 'competitions-theme-functionality')|e('esc_html') }}</a>
       
     </div>
   </div>

@@ -105,7 +105,7 @@ class CustomPageTemplater {
       return $template;
     }
     
-    $file = BAREBONES_TIMBER_PATH . 'page-templates/' . get_post_meta($post->ID, '_wp_page_template', true);
+    $file = COMPETITIONS_THEME_FUNCTIONALITY_PATH . 'page-templates/' . get_post_meta($post->ID, '_wp_page_template', true);
     // Just to be safe, we check if the file exist first
     if (file_exists($file)) {
       return $file;

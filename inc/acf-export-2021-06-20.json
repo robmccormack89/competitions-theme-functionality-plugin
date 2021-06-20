@@ -1,0 +1,63 @@
+[
+    {
+        "key": "group_5e8de4fdbcea9",
+        "title": "Entry List Group",
+        "fields": [
+            {
+                "key": "field_5e8de529c1f06",
+                "label": "PDF Upload",
+                "name": "pdf_upload",
+                "type": "file",
+                "instructions": "Upload your Entry List PDF",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_5e8de56e8657d",
+                "label": "Draw Date",
+                "name": "draw_date",
+                "type": "text",
+                "instructions": "Enter the date the competition was drawn on",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "entry_lists"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": ""
+    }
+]
