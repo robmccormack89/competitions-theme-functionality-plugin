@@ -1,36 +1,33 @@
 <?php
 namespace Rmcc;
-use Timber\Timber;
+use CautiousOctoFiesta;
+use Timber;
 
-// set where to look for timber files
-Timber::$locations = array(
-  COMPETITIONS_THEME_FUNCTIONALITY_VIEWS,
-  COMPETITIONS_THEME_FUNCTIONALITY_VIEWS.'/winner',
-  COMPETITIONS_THEME_FUNCTIONALITY_VIEWS.'/list',
-);
-
-class CompetitionsThemeFunctionality extends Timber {
+class CompetitionsThemeFunctionality extends CautiousOctoFiesta {
 
   public function __construct() {
     parent::__construct();
     
+    // add new locations to the twig ones
+    Timber::$locations = array(
+      COMPETITIONS_THEME_FUNCTIONALITY_PATH . 'views',
+      COMPETITIONS_THEME_FUNCTIONALITY_PATH . 'views/list',
+      COMPETITIONS_THEME_FUNCTIONALITY_PATH . 'views/winner',
+    );
+    
     // timber stuff. the usual stuff
-    add_filter( 'timber/twig', array($this, 'add_to_twig'));
-    add_filter( 'timber/context', array($this, 'add_to_context'));
+    add_filter('timber/twig', array($this, 'add_to_twig'));
+    add_filter('timber/context', array($this, 'add_to_context'));
     
     // plugin stuff. these actions will be baked in
     add_action('init', array($this, 'register_post_types')); // register cpts on init action
-    add_action('wp_enqueue_scripts', array($this, 'plugin_enqueue_assets')); // enqueue assets on wp_enqueue_scripts action
-    
+
     // cpt posts_per_page setting
     add_action('pre_get_posts', array($this, 'cpt_posts_per_page'));
     
     // create acf fields. fires after plugins loaded to make sure acf is available
     add_action('plugins_loaded' , array($this, 'cpt_custom_fields'));
     add_action('plugins_loaded' , array($this, 'options_page'));
-    
-    // allow addition of custom page templates to page attributes dropdown
-    add_action('plugins_loaded', array('Rmcc\CustomPageTemplater', 'get_instance'));
   }
   
   public function cpt_posts_per_page( $query ) {
@@ -39,14 +36,10 @@ class CompetitionsThemeFunctionality extends Timber {
   }
 
   public function add_to_twig($twig) { 
-    /* this is where you can add your own functions to twig */
-    $twig->addExtension(new \Twig_Extension_StringLoader());
-    
     return $twig;
   }
 
   public function add_to_context($context) {
-    $context['some_plugin_data'] = 'Lorem Ipsum Dolor...';
     
     // cpts
     $context['is_winners'] = is_post_type_archive( 'winners' );
@@ -295,10 +288,6 @@ class CompetitionsThemeFunctionality extends Timber {
         ));
       endif;
     };
-  }
-
-  public function plugin_enqueue_assets() {
-    // enqueue some assets
   }
 
 }
