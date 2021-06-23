@@ -1,9 +1,8 @@
 <?php
 namespace Rmcc;
-use CautiousOctoFiesta;
-use Timber;
+use Timber\Timber;
 
-class CompetitionsThemeFunctionality extends CautiousOctoFiesta {
+class CompetitionsThemeFunctionality extends Timber {
 
   public function __construct() {
     parent::__construct();
@@ -36,6 +35,9 @@ class CompetitionsThemeFunctionality extends CautiousOctoFiesta {
   }
 
   public function add_to_twig($twig) { 
+    if(!class_exists('Twig_Extension_StringLoader')){
+      $twig->addExtension(new Twig_Extension_StringLoader());
+    }
     return $twig;
   }
 
@@ -291,4 +293,3 @@ class CompetitionsThemeFunctionality extends CautiousOctoFiesta {
   }
 
 }
-new CompetitionsThemeFunctionality;
