@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Competitions Theme Functionality
+Plugin Name: Competitions Theme Functionality by RMcC
 Plugin URI: #
 Description: CPTs, Views, ACF fields & all else...
 Version: 1.0.0
