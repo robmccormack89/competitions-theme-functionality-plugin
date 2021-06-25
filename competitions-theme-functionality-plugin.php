@@ -18,6 +18,8 @@ defined('ABSPATH') || exit;
 
 // define some constants
 if (!defined('COMPETITIONS_THEME_FUNCTIONALITY_PATH')) define('COMPETITIONS_THEME_FUNCTIONALITY_PATH', plugin_dir_path( __FILE__ ));
+if (!defined('COMPETITIONS_THEME_FUNCTIONALITY_URL')) define('COMPETITIONS_THEME_FUNCTIONALITY_URL', plugin_dir_url( __FILE__ ));
+if (!defined('COMPETITIONS_THEME_FUNCTIONALITY_BASE')) define('COMPETITIONS_THEME_FUNCTIONALITY_BASE', dirname(plugin_basename( __FILE__ )));
 
 // require action functions 
 // require_once('inc/functions.php');
